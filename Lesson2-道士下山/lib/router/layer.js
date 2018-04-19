@@ -4,7 +4,7 @@ const hasOwnProperty = Object.prototype.hasOwnProperty
 module.exports = Layer
 
 function Layer(method, fn) {
-  this.method = method,
+  this.method = method,      //eg:post,get,delete
   this.handle = fn
 }
 
