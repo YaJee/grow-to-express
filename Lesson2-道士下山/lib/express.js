@@ -24,7 +24,7 @@ proto.init = function () {
 
 /**
  * 当请求来时，遍历 handles 数组，
- * eg: 假设发来的是 get请求
+ * eg: 假设发来的是 get请求 则只有 handles.get会执行，其他的直接return
 
  */
 proto.handle = function (req, res) {
@@ -35,7 +35,8 @@ proto.handle = function (req, res) {
   }
 }
 /**
- * methods：一个函数名称数组 [get,post,delete,。。。。]；
+ * 1。methods：一个函数名称数组 [get,post,delete,。。。。]；
+ * 2。把[get,post,delete,。。]的每一个制作为一个 Layer对象，并放进handles
  */
 methods.forEach(function(method) {
   proto[method] = function(fn) {

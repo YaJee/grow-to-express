@@ -16,7 +16,7 @@ Layer.prototype.handle_request = function(req, res, next) {
   if (!this.handle_method(req)) return
   const fn = this.handle
   try {
-    fn(req, res, next)
+    fn(req, res, next)      //真正的处理函数
   } catch (err) {
     throw err
   }

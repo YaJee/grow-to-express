@@ -29,8 +29,13 @@ proto.handle = function () {
   this.route.dispatch.apply(this.route, slice.call(arguments))
 }
 
+/**
+ * 把 Router上的方法，复制到 app上，  eg: app['get'] = Router['get']
+ */
 methods.forEach(function (method) {
+  //app['get']
   proto[method] = function (fn) {
+    //route['get']
     this.route[method].apply(this.route, slice.call(arguments))
   }
 })
